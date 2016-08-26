@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.ha</groupId>
+		<artifactId>javaee7-angular</artifactId>
+		<version>${project.parent.version}</version>
+	</parent>
+
+	<artifactId>javaee7-angular-web</artifactId>
+	<packaging>war</packaging>
+
+	<name>Java EE 7 with AngularJS</name>
+	<description>A simple Java EE 7 project with AngularJS on frontend.</description>
+
+	<developers>
+		<developer>
+			<name>Hugo Arthur do Amaral Borges</name>
+			<email>hugoarthur@me.com</email>
+		</developer>
+	</developers>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<!-- web.xml is not mandatory since JavaEE 5 -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

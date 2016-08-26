@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.ha</groupId>
+		<artifactId>javaee7-angular</artifactId>
+		<version>${project.parent.version}</version>
+	</parent>
+
+	<artifactId>javaee7-angular-ear</artifactId>
+	<packaging>ear</packaging>
+
+	<name>Java EE 7 with AngularJS</name>
+	<description>A simple Java EE 7 project with AngularJS on frontend.</description>
+
+	<developers>
+		<developer>
+			<name>Hugo Arthur do Amaral Borges</name>
+			<email>hugoarthur@me.com</email>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.github.ha</groupId>
+			<artifactId>javaee7-angular-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ha</groupId>
+			<artifactId>javaee7-angular-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10.1</version>
+				<configuration>
+					<version>1.3</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<earName>${project.artifactId}</earName>
+					<modules>
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.parent.artifactId}-web</artifactId>
+							<bundleFileName>${project.parent.groupId}-web.war</bundleFileName>
+							<contextRoot>/jee-angular</contextRoot>
+						</webModule>
+						<ejbModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.parent.artifactId}-ejb</artifactId>
+							<bundleFileName>${project.parent.groupId}-ejb.jar</bundleFileName>
+						</ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
